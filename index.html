@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的第一个网页</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      font-family: "Segoe UI", "Microsoft YaHei", system-ui, sans-serif;
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 45%, #4c1d95 100%);
+      color: #fff;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 520px;
+      padding: 40px 32px;
+      text-align: center;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    .avatar {
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 18px;
+      display: grid;
+      place-items: center;
+      font-size: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #818cf8, #c084fc);
+    }
+
+    h1 { font-size: 26px; margin-bottom: 8px; }
+
+    .subtitle {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.65);
+      margin-bottom: 28px;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #1e1b4b;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      background: linear-gradient(135deg, #a5b4fc, #e9d5ff);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    button:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(165, 180, 252, 0.35); }
+    button:active { transform: translateY(0); }
+
+    #result {
+      min-height: 46px;
+      margin-top: 22px;
+      font-size: 17px;
+      color: #fde68a;
+      line-height: 1.5;
+    }
+
+    .counter {
+      margin-top: 18px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    footer {
+      margin-top: 30px;
+      padding-top: 18px;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.4);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="avatar">🚀</div>
+    <h1>我的第一个网页</h1>
+    <p class="subtitle">发布在 GitHub Pages · 完全免费</p>
+
+    <button id="pickBtn">今天学点什么？</button>
+    <div id="result">点一下按钮试试 👆</div>
+    <div class="counter" id="counter">已经点过 0 次</div>
+
+    <footer>Made with ❤️ · 我的第一个 GitHub 项目</footer>
+  </main>
+
+  <script>
+    // 想改内容？直接改下面这个数组里的文字就行
+    const topics = [
+      "学 Git 的 add / commit / push",
+      "读一篇 MDN 的 HTML 教程",
+      "写一个 Python 的猜数字小游戏",
+      "把这段代码改个颜色试试",
+      "去 GitHub 给喜欢的项目点个 Star",
+      "看懂一行 JavaScript 在做什么"
+    ];
+
+    let count = 0;
+    const resultEl = document.getElementById("result");
+    const counterEl = document.getElementById("counter");
+
+    document.getElementById("pickBtn").addEventListener("click", () => {
+      const topic = topics[Math.floor(Math.random() * topics.length)];
+      resultEl.textContent = "👉 " + topic;
+      count++;
+      counterEl.textContent = "已经点过 " + count + " 次";
+    });
+  </script>
+</body>
+</html>
